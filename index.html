@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--parte 1-->
+    <img
+      id="iguana"
+      src="assets/img/iguana.png"
+      alt="mira la iguana que bella"
+      onclick="clickParte1()"
+    />
+    <!--parte 2-->
+    <div class="parte2">
+      <h1>Puede llevar hasta 10 stickers en total</h1>
+      <div class="container">
+        <div class="stickers1">
+          <img src="assets/img/stickers1.png" alt="sshh" />
+          <input id="cantidad1" type="number" value="0" />
+        </div>
+        <div class="stickers1">
+          <img src="assets/img/stickers2.jpeg" alt="y que dijo" />
+          <input id="cantidad2" type="number" value="0" />
+        </div>
+        <div class="stickers1">
+          <img src="assets/img/stickers3.jpeg" alt="aahh" />
+          <input id="cantidad3" type="number" value="0" />
+        </div>
+      </div>
+
+      <p class="total"></p>
+      <button onclick="sumaParte2()">verificar</button>
+    </div>
+
+    <!--parte 3-->
+    <div class="parte3">
+      <h2>Ingresar el password</h2>
+      <select name="" id="pass1">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+
+      <select name="" id="pass2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+
+      <select name="" id="pass3">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+
+      <button onclick="parte3()">Ingresar</button>
+
+      <p class="mensaje"></p>
+    </div>
+    <script>
+      function clickParte1() {
+        const iguana = document.getElementById("iguana");
+
+        if (iguana.style.border === "") {
+          iguana.style.border = "solid 2px red";
+        } else {
+          iguana.style.border = "";
+        }
+      }
+
+      function sumaParte2() {
+        c1 = +document.querySelector("#cantidad1").value;
+        c2 = +document.querySelector("#cantidad2").value;
+        c3 = +document.querySelector("#cantidad3").value;
+
+        suma = c1 + c2 + c3;
+
+        if (suma <= 10) {
+          document.querySelector(".total").innerHTML =
+            "Llevas " + suma + " stickers";
+        } else {
+          document.querySelector(".total").innerHTML =
+            "Llevas demasiados stickers";
+        }
+      }
+
+      function parte3() {
+        pass1 = document.querySelector("#pass1").value;
+        pass2 = document.querySelector("#pass2").value;
+        pass3 = document.querySelector("#pass3").value;
+
+        pass = pass1 + pass2 + pass3;
+        console.log(pass);
+
+        if (pass == "911") {
+          document.querySelector(".mensaje").innerHTML = "password 1 correcto";
+        } else if (pass == "714") {
+          document.querySelector(".mensaje").innerHTML = "password 2 correcto";
+        } else {
+          document.querySelector(".mensaje").innerHTML = "password incorrecto";
+        }
+      }
+    </script>
+  </body>
+</html>
